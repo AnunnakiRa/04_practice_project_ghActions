@@ -1,0 +1,14 @@
+name: issues.yml CI
+
+on:
+  issues:
+    types: [opened, edited, labeled] # Define the types of issue events you want to track
+
+jobs:
+  debug-issue-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump issue event payload
+        run: echo "${{ toJSON(github.event) }}"
+      - name: Finished Indicator
+        run: echo "Done !"
